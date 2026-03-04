@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const ReactPlayer = require("react-player").default as React.ComponentType<{
-  url: string; width: string; height: string; playing?: boolean; controls?: boolean; onReady?: () => void;
-}>;
-import React from "react";
+import dynamic from "next/dynamic";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false }) as any;
 
 interface VideoPlayerProps {
   src: string;
@@ -13,7 +12,7 @@ interface VideoPlayerProps {
   episodeId: string;
 }
 
-export default function VideoPlayer({ src, title }: VideoPlayerProps) {
+export default function VideoPlayer({ src }: VideoPlayerProps) {
   const [ready, setReady] = useState(false);
 
   return (
