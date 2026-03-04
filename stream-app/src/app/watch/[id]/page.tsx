@@ -17,7 +17,7 @@ export default async function WatchPage({ params }: { params: Promise<{ id: stri
   const related = getRelatedShows(show.id);
 
   return (
-    <div className="pt-16 min-h-screen bg-black">
+    <div className="pt-16 min-h-screen bg-[#0e0118]">
       <div className="relative w-full bg-black">
         <div className="absolute top-4 left-4 z-20">
           <Link
@@ -40,7 +40,7 @@ export default async function WatchPage({ params }: { params: Promise<{ id: stri
           <div className="flex-1">
             <h1 className="text-2xl font-bold text-white">{episode.title}</h1>
             <p className="text-sm text-gray-400 mt-1">
-              <Link href={`/shows/${show.id}`} className="hover:text-red-400 transition-colors">
+              <Link href={`/shows/${show.id}`} className="hover:text-pink-400 transition-colors">
                 {show.title}
               </Link>
               {show.category !== "movie" && (
@@ -62,14 +62,14 @@ export default async function WatchPage({ params }: { params: Promise<{ id: stri
                     href={`/watch/${ep.id}`}
                     className={`flex items-center gap-3 p-3 rounded-xl transition-all ${
                       ep.id === id
-                        ? "bg-red-600/20 border border-red-600/40"
-                        : "bg-[#141420] hover:bg-[#1e1e2e] border border-[#1f1f2e]"
+                        ? "bg-pink-600/20 border border-pink-600/40"
+                        : "bg-[#160429] hover:bg-[#220a3f] border border-[#2d1050]"
                     }`}
                   >
                     <span className="shrink-0 w-6 text-center text-xs text-gray-500">
                       {ep.episode_number}
                     </span>
-                    <p className={`flex-1 text-sm font-medium truncate ${ep.id === id ? "text-red-400" : "text-gray-200"}`}>
+                    <p className={`flex-1 text-sm font-medium truncate ${ep.id === id ? "text-pink-400" : "text-gray-200"}`}>
                       {ep.title}
                     </p>
                     <span className="shrink-0 text-xs text-gray-500">{Math.floor(ep.duration / 60)}m</span>

@@ -35,10 +35,10 @@ export default function WatchlistButton({ showId }: WatchlistButtonProps) {
   return (
     <button
       onClick={toggle}
-      className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors ${
+      className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-colors ${
         inWatchlist
-          ? "bg-green-600/20 text-green-400 border border-green-600/40 hover:bg-green-600/30"
-          : "bg-white/10 text-white border border-white/20 hover:bg-white/20"
+          ? "bg-pink-600/20 text-pink-400 border border-pink-600/40 hover:bg-pink-600/30"
+          : "bg-white/15 text-white border border-white/20 hover:bg-white/25"
       }`}
     >
       {inWatchlist ? <BookmarkCheck size={18} /> : <BookmarkPlus size={18} />}

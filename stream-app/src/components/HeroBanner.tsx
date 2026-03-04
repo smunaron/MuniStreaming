@@ -22,20 +22,20 @@ export default function HeroBanner({ show, firstEpisodeId }: HeroBannerProps) {
       />
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0e0118]/95 via-[#0e0118]/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0e0118] via-transparent to-transparent" />
 
       {/* Content */}
       <div className="absolute inset-0 flex items-end pb-16 sm:pb-20">
         <div className="px-4 sm:px-6 lg:px-8 max-w-2xl">
           {/* Featured badge */}
           <div className="mb-3">
-            <span className="text-xs font-bold px-2 py-1 bg-red-600 text-white rounded uppercase tracking-widest">
-              Featured
+            <span className="text-xs font-bold px-3 py-1 bg-pink-600 text-white rounded-full uppercase tracking-widest">
+              Uitgelicht
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 leading-tight">
             {show.title}
           </h1>
 
@@ -55,18 +55,18 @@ export default function HeroBanner({ show, firstEpisodeId }: HeroBannerProps) {
             {firstEpisodeId ? (
               <Link
                 href={`/watch/${firstEpisodeId}`}
-                className="flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-100 transition-colors"
               >
                 <Play className="fill-black" size={18} />
-                Play
+                Kijk nu
               </Link>
             ) : null}
             <Link
               href={`/shows/${show.id}`}
-              className="flex items-center gap-2 px-6 py-3 bg-white/20 text-white font-semibold rounded-lg hover:bg-white/30 backdrop-blur-sm transition-colors border border-white/20"
+              className="flex items-center gap-2 px-6 py-3 bg-white/15 text-white font-semibold rounded-full hover:bg-white/25 backdrop-blur-sm transition-colors border border-white/20"
             >
               <Info size={18} />
-              More Info
+              Meer info
             </Link>
           </div>
         </div>

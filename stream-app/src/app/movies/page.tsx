@@ -8,7 +8,7 @@ export default function MoviesPage() {
   return (
     <div className="pt-24 min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex items-center gap-3 mb-8">
-        <Film size={28} className="text-red-600" />
+        <Film size={28} className="text-pink-500" />
         <h1 className="text-2xl font-bold text-white">Films</h1>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">

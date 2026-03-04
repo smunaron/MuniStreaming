@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import ShowCard from "./ShowCard";
 import type { Show } from "@/lib/supabase/types";
 
@@ -24,23 +24,24 @@ export default function ShowCarousel({ title, shows }: ShowCarouselProps) {
   return (
     <section className="relative">
       <div className="flex items-center justify-between mb-4 px-4 sm:px-6 lg:px-8">
-        <h2 className="text-lg sm:text-xl font-bold text-white">{title}</h2>
-        <div className="flex gap-2">
-          <button
-            onClick={() => scroll("left")}
-            className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft size={18} />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-            aria-label="Scroll right"
-          >
-            <ChevronRight size={18} />
-          </button>
-        </div>
+        <button
+          onClick={() => scroll("right")}
+          className="flex items-center gap-1 group"
+        >
+          <h2 className="text-lg sm:text-xl font-bold text-white group-hover:text-pink-400 transition-colors">
+            {title}
+          </h2>
+          <ChevronRight
+            size={22}
+            className="text-pink-500 group-hover:translate-x-0.5 transition-transform mt-0.5"
+          />
+        </button>
+        <button
+          onClick={() => scroll("right")}
+          className="text-xs font-semibold text-pink-500 hover:text-pink-400 transition-colors"
+        >
+          Alles zien
+        </button>
       </div>
 
       <div
