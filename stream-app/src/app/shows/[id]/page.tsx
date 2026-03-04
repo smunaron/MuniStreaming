@@ -26,7 +26,7 @@ export default async function ShowPage({ params }: { params: Promise<{ id: strin
       <div className="relative h-[50vh] min-h-[380px]">
         <Image src={show.banner} alt={show.title} fill className="object-cover" priority unoptimized />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0e0118] via-transparent to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 relative z-10">
@@ -52,7 +52,7 @@ export default async function ShowPage({ params }: { params: Promise<{ id: strin
               {firstEpisode && (
                 <Link
                   href={`/watch/${firstEpisode.id}`}
-                  className="flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-100 transition-colors"
                 >
                   <Play className="fill-black" size={18} />
                   {show.category === "movie" ? "Bekijk nu" : "Speel S1 E1"}
@@ -81,7 +81,7 @@ export default async function ShowPage({ params }: { params: Promise<{ id: strin
                       <Link
                         key={ep.id}
                         href={`/watch/${ep.id}`}
-                        className="flex items-start gap-4 p-4 rounded-xl bg-[#141420] hover:bg-[#1e1e2e] border border-[#1f1f2e] hover:border-red-600/30 transition-all group"
+                        className="flex items-start gap-4 p-4 rounded-xl bg-[#160429] hover:bg-[#220a3f] border border-[#2d1050] hover:border-pink-600/30 transition-all group"
                       >
                         <div className="relative shrink-0 w-32 h-20 rounded-lg overflow-hidden bg-black">
                           <Image src={ep.thumbnail} alt={ep.title} fill className="object-cover group-hover:scale-105 transition-transform" unoptimized />
@@ -91,7 +91,7 @@ export default async function ShowPage({ params }: { params: Promise<{ id: strin
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between gap-2">
-                            <h4 className="text-white font-medium group-hover:text-red-400 transition-colors">
+                            <h4 className="text-white font-medium group-hover:text-pink-400 transition-colors">
                               {show.category !== "movie" && (
                                 <span className="text-gray-500 text-sm mr-2">E{ep.episode_number}</span>
                               )}

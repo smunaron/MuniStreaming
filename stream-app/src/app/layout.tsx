@@ -9,8 +9,8 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "StreamNow — Watch TV & Movies Online",
-  description: "Stream the latest TV shows and movies on demand.",
+  title: "MuniStream — Stream TV & Films Online",
+  description: "Stream de laatste TV-series en films on demand.",
 };
 
 export default function RootLayout({
@@ -20,11 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} antialiased bg-[#0a0a0f] text-white`}>
+      <body className={`${geist.variable} antialiased bg-[#0e0118] text-white`}>
         <Navbar />
         <main>{children}</main>
-        <footer className="border-t border-[#1f1f2e] mt-16 py-8 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} StreamNow. For demo purposes only.
+        <footer className="border-t border-[#2d1050] mt-16 py-8 text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} MuniStream. Alleen voor demo-doeleinden.
         </footer>
       </body>
     </html>

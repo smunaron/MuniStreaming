@@ -1,0 +1,19 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd stream-app
+        - node --version
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: stream-app/.next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - stream-app/node_modules/**/*
+      - stream-app/.next/cache/**/*
