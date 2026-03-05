@@ -31,6 +31,7 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/shows", label: "Series" },
     { href: "/movies", label: "Films" },
+    { href: "/search", label: "Vibe Search" },
   ];
 
   return (
