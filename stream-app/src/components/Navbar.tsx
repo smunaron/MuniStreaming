@@ -34,6 +34,11 @@ export default function Navbar() {
     { href: "/search", label: "Vibe Search" },
   ];
 
+  // Strip trailing slash so trailingSlash:true in next.config doesn't break matching
+  const cleanPath = pathname.replace(/\/$/, "") || "/";
+  const isActive = (href: string) =>
+    href === "/" ? cleanPath === "/" : cleanPath === href || cleanPath.startsWith(href + "/");
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -58,7 +63,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-semibold px-4 py-2 rounded-full transition-colors ${
-                  pathname === link.href
+                  isActive(link.href)
                     ? "bg-white text-black"
                     : "text-gray-300 hover:text-white hover:bg-white/10"
                 }`}
@@ -69,7 +74,7 @@ export default function Navbar() {
             <Link
               href="/live"
               className={`flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-full transition-colors ${
-                pathname === "/live"
+                isActive("/live")
                   ? "bg-red-600 text-white"
                   : "text-red-400 hover:text-white hover:bg-red-600/80"
               }`}
@@ -97,7 +102,7 @@ export default function Navbar() {
             <Link
               href="/watchlist"
               className={`p-2 rounded-full transition-colors ${
-                pathname === "/watchlist"
+                isActive("/watchlist")
                   ? "text-white bg-white/10"
                   : "text-gray-300 hover:text-white hover:bg-white/10"
               }`}
@@ -140,7 +145,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className={`block text-sm py-1 font-semibold transition-colors ${
-                  pathname === link.href
+                  isActive(link.href)
                     ? "text-white"
                     : "text-gray-400 hover:text-white"
                 }`}
@@ -152,7 +157,7 @@ export default function Navbar() {
               href="/live"
               onClick={() => setMobileOpen(false)}
               className={`flex items-center gap-2 text-sm py-1 font-semibold transition-colors ${
-                pathname === "/live" ? "text-white" : "text-red-400 hover:text-white"
+                isActive("/live") ? "text-white" : "text-red-400 hover:text-white"
               }`}
             >
               <Radio size={16} />
@@ -163,7 +168,7 @@ export default function Navbar() {
               href="/watchlist"
               onClick={() => setMobileOpen(false)}
               className={`flex items-center gap-2 text-sm py-1 font-semibold transition-colors ${
-                pathname === "/watchlist" ? "text-white" : "text-gray-400 hover:text-white"
+                isActive("/watchlist") ? "text-white" : "text-gray-400 hover:text-white"
               }`}
             >
               <BookmarkCheck size={16} />
