@@ -26,8 +26,11 @@ function scoreByMood(show: Show, query: string): number {
 export default function SearchContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get("q")?.trim() ?? "";
+  const vibeParam = searchParams.get("vibe") ?? "";
 
-  const [activeVibes, setActiveVibes] = useState<string[]>([]);
+  const [activeVibes, setActiveVibes] = useState<string[]>(() =>
+    vibeParam && VIBES.some((v) => v.id === vibeParam) ? [vibeParam] : []
+  );
   const [moodInput, setMoodInput] = useState("");
 
   // Title search takes precedence when ?q= is in URL

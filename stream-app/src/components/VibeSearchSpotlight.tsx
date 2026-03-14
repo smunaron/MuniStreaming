@@ -36,7 +36,7 @@ export default function VibeSearchSpotlight() {
           {preview.map((vibe) => (
             <Link
               key={vibe.id}
-              href="/search"
+              href={`/search?vibe=${vibe.id}`}
               className={`bg-gradient-to-br ${vibe.gradient} border border-white/5 hover:border-pink-500/40 rounded-2xl p-4 transition-all hover:scale-[1.02] group`}
             >
               <span className="text-2xl block mb-1.5">{vibe.emoji}</span>

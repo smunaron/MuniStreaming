@@ -96,7 +96,11 @@ export default function Navbar() {
             </form>
             <Link
               href="/watchlist"
-              className="p-2 rounded-full text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+              className={`p-2 rounded-full transition-colors ${
+                pathname === "/watchlist"
+                  ? "text-white bg-white/10"
+                  : "text-gray-300 hover:text-white hover:bg-white/10"
+              }`}
               title="Mijn lijst"
             >
               <BookmarkCheck size={20} />
@@ -135,7 +139,11 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block text-sm text-gray-300 hover:text-white py-1"
+                className={`block text-sm py-1 font-semibold transition-colors ${
+                  pathname === link.href
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
+                }`}
               >
                 {link.label}
               </Link>
@@ -143,7 +151,9 @@ export default function Navbar() {
             <Link
               href="/live"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-2 text-sm text-red-400 hover:text-white py-1 font-semibold"
+              className={`flex items-center gap-2 text-sm py-1 font-semibold transition-colors ${
+                pathname === "/live" ? "text-white" : "text-red-400 hover:text-white"
+              }`}
             >
               <Radio size={16} />
               HLN Live
@@ -152,7 +162,9 @@ export default function Navbar() {
             <Link
               href="/watchlist"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-2 text-sm text-gray-300 hover:text-white py-1"
+              className={`flex items-center gap-2 text-sm py-1 font-semibold transition-colors ${
+                pathname === "/watchlist" ? "text-white" : "text-gray-400 hover:text-white"
+              }`}
             >
               <BookmarkCheck size={16} />
               Mijn lijst
