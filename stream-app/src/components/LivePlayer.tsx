@@ -33,12 +33,12 @@ export default function LivePlayer() {
         hls.on(Hls.Events.ERROR, (_e, data) => {
           if (data.fatal) setError(true);
         });
-      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      } else if (video?.canPlayType("application/vnd.apple.mpegurl")) {
         // Native HLS (Safari)
         video.src = HLS_URL;
         video.addEventListener("loadedmetadata", () => {
           setReady(true);
-          video.play().catch(() => {});
+          video!.play().catch(() => {});
         });
       } else {
         setError(true);

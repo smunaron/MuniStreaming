@@ -52,11 +52,11 @@ export default function LiveBanner() {
           setTimeout(captureFrame, 2000);
           interval = setInterval(captureFrame, 10000);
         });
-      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      } else if (video?.canPlayType("application/vnd.apple.mpegurl")) {
         video.src = HLS_URL;
         video.addEventListener("loadedmetadata", () => {
           setReady(true);
-          video.play().catch(() => {});
+          video!.play().catch(() => {});
           setTimeout(captureFrame, 2000);
           interval = setInterval(captureFrame, 10000);
         });
